@@ -41,3 +41,19 @@ This work is published under [MIT][mit] License.
 [chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
 [CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+
+## Usage 使用
+### Start the Jekyll Server 启动Jekyll服务器
+要在本地运行站点，请使用以下命令：
+``` sh
+bundle exec jekyll s
+```
+```sh
+F:\Project\MyPersonalBlog\lihouyun.github.io>bundle exec jekyll s
+```
+如果你使用的是Dev Containers，你必须在VS CodeTerminal中运行这个命令。
+几秒钟后，本地服务器将在http://127.0.0.1:4000上可用。
+因为我未能顺利安装`wdm`库，以至于每次的配置更改都要从新运行`bundle exec jekyll s`
+
+## 进入 RubyInstall2 for Windows
+点击“Start Command Prompt with Ruby”，输入“ridk install”。
