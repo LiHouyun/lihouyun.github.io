@@ -13,14 +13,17 @@ date: 2023-10-03 18:48:00
 
 ## 使用 cx_Freeze 打包项目(好用)
 以下是使用 cx_Freeze 打包 Python 项目的步骤：
+
 1. 安装 cx_Freeze
 在命令行中运行以下命令来安装 cx_Freeze：
+
 ```sh
 pip install cx_Freeze
 ``` 
 2. 创建 setup.py 文件
 在你的项目目录中创建一个 setup.py 文件，内容如下：
-``` python
+
+```python
 import sys
 from cx_Freeze import setup, Executable
 
@@ -58,6 +61,7 @@ setup(
 ```
 3. 打包项目
 在命令行中运行以下命令来打包项目，这步会有很多输出，耐心等待。
+
 ```sh
 python setup.py build
 ```
