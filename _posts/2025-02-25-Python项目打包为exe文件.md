@@ -1,5 +1,5 @@
 ---
-title: test
+title: Python 项目打包为 exe 文件
 date: 2023-10-03 18:48:00
 ---
 
