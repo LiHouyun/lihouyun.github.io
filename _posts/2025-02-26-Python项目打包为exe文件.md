@@ -1,5 +1,5 @@
 ---
-title: Python 项目打包为 exe 文件1
+title: Python 项目打包为 exe 文件
 date: 2025-02-26 16:10:00 +0800
 ---
 
