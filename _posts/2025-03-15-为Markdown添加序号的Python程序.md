@@ -15,6 +15,7 @@ tag: [Python, 小工具]
 4. 使用 `argparse` 自动生成帮助信息，并在用户输入 `-h` 或 `--help` 时显示。
 
 ## 3. Code
+
 ```Python
 """
 3-为markdown添加序号.py
