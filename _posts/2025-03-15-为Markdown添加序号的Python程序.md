@@ -16,7 +16,7 @@ tag: [Python, 小工具]
 
 ## 3. Code
 
-```Python
+```python
 """
 3-为markdown添加序号.py
 
