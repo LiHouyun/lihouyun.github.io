@@ -25,16 +25,20 @@ Multi-Exceptions available:
 ```
 
 “文件”-“Switch Workspace …”
-![alt text](../assets/img-md/ssv5-改变工作路径.png){: height="400"}
+
+![alt text](../assets/img-md/ssv5-改变工作路径.png){: height="400" }
 
 ## 3. 导入项目
 “File”-“Import …”
-![alt text](../assets/img-md/ssv5-导入项目.png){: height="400"}
+
+![alt text](../assets/img-md/ssv5-导入项目.png){: height="400" }
 
 ## 4. 编译程序
 右键项目名-“Bulid Project”
-![alt text](../assets/img-md/ssv5-编译项目.png){: height="400"}
+
+![alt text](../assets/img-md/ssv5-编译项目.png){: height="400" }
 
 ## 5. 烧录固件
 程序编译后项目目录中会有一个“Binaries”文件夹
-![alt text](../assets/img-md/ssv5-烧录固件.png){: height="400"}
+
+![alt text](../assets/img-md/ssv5-烧录固件.png){: height="400" }
