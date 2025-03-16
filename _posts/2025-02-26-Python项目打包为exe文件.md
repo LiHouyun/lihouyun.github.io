@@ -5,13 +5,13 @@ category: 软件
 tag: [程序打包, Python]
 ---
 
-## 前言
+## 1 前言
 
 项目写完之后需要打包、分发、安装。
 
 对于 Python 项目，了解到有 PyInstaller，cx_Freeze，py2exe。PyInstaller 简单尝试后，生成的 exe 文件双击后闪退，便没有深究。后尝试使用 cx_Freeze，很顺利。下面介绍 cx_Freeze 打包为 exe 文件的步骤。
 
-## 使用 cx_Freeze 打包项目(好用)
+## 2 使用 cx_Freeze 打包项目(好用)
 以下是使用 cx_Freeze 打包 Python 项目的步骤：
 
 1. 安装 cx_Freeze
@@ -29,15 +29,15 @@ pip install cx_Freeze
 import sys
 from cx_Freeze import setup, Executable
 
-# 要打包的Python脚本路径
+# 1. 要打包的Python脚本路径
 script = "app.py"
 
-# 不在运行程序的时候出现cmd后台框
+# 2. 不在运行程序的时候出现cmd后台框
 base = None
 if sys.platform == "win32":
     base = "Win32GUI"
 
-# 创建可执行文件的配置
+# 3. 创建可执行文件的配置
 exe = Executable(
     script=script,
     base=base,
@@ -45,7 +45,7 @@ exe = Executable(
     icon='./src/icon/icon_2_kao.ico' # 自定义
 )
 
-# 打包的参数配置
+# 4. 打包的参数配置
 options = {
     "build_exe": {
         "packages": [],
