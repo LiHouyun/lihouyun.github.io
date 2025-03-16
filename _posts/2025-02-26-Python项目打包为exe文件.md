@@ -3,9 +3,11 @@ title: Python 项目打包为 exe 文件
 date: 2025-02-26 16:10:00 +0800
 category: 软件
 tag: [程序打包, Python]
+description: 项目写完之后需要打包、分发、安装。对于 Python 项目，了解到有 PyInstaller，cx_Freeze，py2exe。此博客介绍 cx_Freeze 打包为 exe 文件的步骤。
 ---
 
 ## 1 前言
+我的一个 PyQt 项目第一版完成了，需要考虑如何发布及后面的流程。
 
 项目写完之后需要打包、分发、安装。
 

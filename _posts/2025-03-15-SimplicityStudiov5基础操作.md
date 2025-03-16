@@ -3,6 +3,7 @@ title: Simplicity Studio v5 基础操作
 data: 2025-03-15 22:56:00 +0800
 category: 软件
 tag: [嵌入式, ssv5]
+description: 最近的项目用到了芯科科技（Silicon Labs）的芯片，于是接触到了 Simplicity Studio v5。此博客记录一些相关操作。
 ---
 
 ## 1. 前言
