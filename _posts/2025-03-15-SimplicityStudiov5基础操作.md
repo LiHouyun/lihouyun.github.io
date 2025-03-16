@@ -12,6 +12,7 @@ tag: [嵌入式, ssv5]
 
 ## 2. 改变工作路径
 当默认的工作路径中含中文时，创建项目会报错。
+
 ![alt text](../assets/img-md/ssv5-创建项目报错.png){: width="400"}
 ```sh
 Failed to create new Configurable Project (SLCP)!
