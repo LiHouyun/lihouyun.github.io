@@ -13,7 +13,9 @@ description: 项目写完之后需要打包、分发、安装。对于 Python �
 
 对于 Python 项目，了解到有 PyInstaller，cx_Freeze，py2exe。PyInstaller 简单尝试后，生成的 exe 文件双击后闪退，便没有深究。后尝试使用 cx_Freeze，很顺利。下面介绍 cx_Freeze 打包为 exe 文件的步骤。
 
-## 2 使用 cx_Freeze 打包项目(好用)
+## 2 使用 cx_Freeze 打包项目（好用）
+建议为要打包的项目单独创建、配置一个虚拟环境。具体这样做是否能让打包成的.app文件更小还不清楚，但是亲测这样做速度会快很多。感觉原因是在打包的过程中，需要遍历的包更少。此外，可能老的环境下打包报错，但是在新的环境下打包就不会报错[^1]。
+
 以下是使用 cx_Freeze 打包 Python 项目的步骤：
 
 1. 安装 cx_Freeze
@@ -74,3 +76,6 @@ python setup.py build
 4. 查看生成的 .exe 文件
    
 打包完成后，会在项目目录下生成一个 build 文件夹，.exe 文件就在这个文件夹中，双击 exe 即可运行
+
+## 3. References
+[^1]: [用 py2app 将 Python 脚本打包成 Mac OS 下的 APP 程序](https://zhuanlan.zhihu.com/p/454550005)
