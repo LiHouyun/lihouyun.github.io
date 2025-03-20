@@ -2,7 +2,7 @@
 title: 为 Markdown 添加序号的 Python 程序
 data: 2025-03-15 00:42:00 +0800
 category: 软件
-tag: [Python, 小工具]
+tag: [Python, 小工具, Markdown]
 description: 使用 Markdown 记笔记时发现偶尔会需要调换顺序，那么手动编号就要多处修改，很不方便，于是有了这个程序。
 ---
 
