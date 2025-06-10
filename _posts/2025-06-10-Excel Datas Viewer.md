@@ -2,7 +2,7 @@
 title: Excel Datas Viewer
 data: 2025-06-10 22:15:00 +0800
 category: 软件
-tag: [Python, PyQt5, pyqtgraph]
+tag: [Python, PyQt5, pyqtgraph, 小工具]
 description: Excel Datas Viewer
 ---
 
