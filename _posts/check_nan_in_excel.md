@@ -3,7 +3,7 @@ title: Excel中定位NaN值
 data: 2025-06-12 23:40:00 +0800
 category: 软件
 tag: [Python, 小工具]
-description: 
+description: Excel中定位NaN值
 ---
 
 # 1. 前言
