@@ -29,18 +29,27 @@ python tools\excel_chart_viewer.py data\real_data_sheet_cls_5_artificial_cut.xls
 # 9. 500 SF
 # 10. 550 UD
 # 11. 600 WB
-
+# 25 Y
+# 50 AX
+# 75 BW1
+# 100 CV 
+# 200 GR
+# 400 OJ
+# 500 SF
+# 550 UD
+# 600 WB
 import sys
 import os
 import warnings
 import pandas as pd
 import numpy as np
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
-                             QScrollArea, QHBoxLayout, QLabel, QFrame)
+                             QScrollArea, QHBoxLayout, QLabel, QFrame, QPushButton, 
+                             QLineEdit, QFileDialog)
 from PyQt5.QtCore import Qt
 import pyqtgraph as pg
 
-# 12. 抑制警告输出
+# 抑制警告输出
 class NullWriter:
     def write(self, s):
         pass
@@ -50,12 +59,12 @@ sys.stderr = NullWriter()
 warnings.filterwarnings("ignore")
 
 class ExcelChartViewer(QMainWindow):
-    def __init__(self, excel_path, charts_per_row=2, y_range=None, x_range=None):
+    def __init__(self):
         super().__init__()
-        self.excel_path = excel_path
-        self.charts_per_row = charts_per_row
-        self.y_range = y_range
-        self.x_range = x_range
+        self.excel_path = None
+        self.charts_per_row = 2
+        self.y_range = 400
+        self.x_range = 600
         self.setWindowTitle("Excel Data Visualization - PyQtGraph")
         self.setGeometry(100, 100, 1200, 900)
         
@@ -65,8 +74,7 @@ class ExcelChartViewer(QMainWindow):
         pg.setConfigOption('antialias', True)
         
         self.initUI()
-        self.load_excel_data()
-        
+
     def initUI(self):
         # 创建中央部件和布局
         central_widget = QWidget()
@@ -74,6 +82,36 @@ class ExcelChartViewer(QMainWindow):
         
         # 主布局
         main_layout = QVBoxLayout(central_widget)
+        
+        # 输入控件布局
+        input_layout = QHBoxLayout()
+        
+        # 选择文件按钮
+        select_file_button = QPushButton("选择 Excel 文件")
+        select_file_button.clicked.connect(self.select_excel_file)
+        input_layout.addWidget(select_file_button)
+        
+        # charts_per_row 输入框
+        self.charts_per_row_input = QLineEdit(str(self.charts_per_row))
+        input_layout.addWidget(QLabel("每行图表数量:"))
+        input_layout.addWidget(self.charts_per_row_input)
+        
+        # y_range 输入框
+        self.y_range_input = QLineEdit(str(self.y_range))
+        input_layout.addWidget(QLabel("Y 轴范围:"))
+        input_layout.addWidget(self.y_range_input)
+        
+        # x_range 输入框
+        self.x_range_input = QLineEdit(str(self.x_range))
+        input_layout.addWidget(QLabel("X 轴范围:"))
+        input_layout.addWidget(self.x_range_input)
+        
+        # 更新按钮
+        update_button = QPushButton("更新设置")
+        update_button.clicked.connect(self.update_settings)
+        input_layout.addWidget(update_button)
+        
+        main_layout.addLayout(input_layout)
         
         # 创建滚动区域
         scroll_area = QScrollArea()
@@ -86,8 +124,35 @@ class ExcelChartViewer(QMainWindow):
         
         scroll_area.setWidget(self.charts_container)
         main_layout.addWidget(scroll_area)
-        
+
+    def select_excel_file(self):
+        file_dialog = QFileDialog()
+        file_path, _ = file_dialog.getOpenFileName(self, "选择 Excel 文件", "", "Excel Files (*.xlsx *.xls)")
+        if file_path:
+            self.excel_path = file_path
+            self.load_excel_data()
+
+    def update_settings(self):
+        try:
+            self.charts_per_row = int(self.charts_per_row_input.text())
+            self.y_range = int(self.y_range_input.text())
+            self.x_range = int(self.x_range_input.text())
+            if self.excel_path:
+                self.load_excel_data()
+        except ValueError:
+            print("输入必须为整数，请重新输入。")
+
     def load_excel_data(self):
+        # 清空之前的图表
+        while self.charts_layout.count():
+            item = self.charts_layout.takeAt(0)
+            widget = item.widget()
+            if widget:
+                widget.deleteLater()
+        
+        if not self.excel_path:
+            return
+        
         # 读取Excel文件，不自动识别标题行
         excel_file = pd.ExcelFile(self.excel_path)
         
@@ -115,7 +180,7 @@ class ExcelChartViewer(QMainWindow):
                 
             except Exception as e:
                 print(f"Error processing sheet {sheet_name}: {e}")
-                
+
     def create_row_charts(self, df, sheet_name, parent_layout):
         # 处理每一行
         for i in range(len(df)):
@@ -131,7 +196,7 @@ class ExcelChartViewer(QMainWindow):
             # 创建图表
             plot_widget = self.create_line_plot(row_data, f"{sheet_name} - 行 {i+1}")
             row_layout.addWidget(plot_widget, stretch=1)
-            
+
     def create_line_plot(self, row_data, title):
         # 创建绘图部件
         plot_widget = pg.PlotWidget()
@@ -164,18 +229,8 @@ class ExcelChartViewer(QMainWindow):
         return plot_widget
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python script.py <excel_file_path>")
-        sys.exit(1)
-        
     app = QApplication(sys.argv)
-    
-    # 参数说明: 
-    # excel_path: Excel文件路径
-    # charts_per_row: 每行显示的图表数量
-    # y_range: Y轴范围(自动对称)
-    # x_range: X轴范围
-    viewer = ExcelChartViewer(sys.argv[1], charts_per_row=2, y_range=400, x_range=1000)
+    viewer = ExcelChartViewer()
     viewer.show()
     
     # 恢复stderr
