@@ -1,9 +1,9 @@
 ---
-title: Excel中定位NaN值
+title: Excel 中定位 NaN 值
 data: 2025-06-12 23:40:00 +0800
 category: 软件
 tag: [Python, 小工具]
-description: Excel中定位NaN值
+description: Excel 中定位 NaN 值
 ---
 
 # 1. 前言
