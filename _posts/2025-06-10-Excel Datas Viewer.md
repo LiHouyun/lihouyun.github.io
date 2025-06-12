@@ -11,8 +11,12 @@ description: Excel Datas Viewer
 最近经常处理 Excel 数据，为了方便地观察数据写了一个可视化工具。
 
 此程序会读取指定的 Excel 文件中的每一个 Sheet 的每一行数据，并以折线图的形式展示出来。
-
-# 2. Code
+# 2. 功能说明
+1. 选择 Excel 文件：添加了一个 QPushButton 用于调用文件资源管理器，用户可以通过点击按钮选择 Excel 文件。
+2. 输入框：添加了三个 QLineEdit 用于输入 charts_per_row、y_range 和 x_range 的值。
+3. 更新按钮：添加了一个 QPushButton 用于更新设置，点击该按钮后，程序会重新加载 Excel 文件并更新图表。
+清空图表：在重新加载 Excel 文件之前，会清空之前的图表，确保每次更新都是最新的设置。
+# 3. Code
 ```sh
 python tools\excel_chart_viewer.py data\real_data_sheet_cls_5_artificial_cut.xlsx
 ```
@@ -20,15 +24,6 @@ python tools\excel_chart_viewer.py data\real_data_sheet_cls_5_artificial_cut.xls
 ![alt text](../assets/img-md/ExcelDatasViewer/image.png)
 
 ```python
-# 3. 25 Y
-# 4. 50 AX
-# 5. 75 BW1
-# 6. 100 CV
-# 7. 200 GR
-# 8. 400 OJ
-# 9. 500 SF
-# 10. 550 UD
-# 11. 600 WB
 # 25 Y
 # 50 AX
 # 75 BW1
