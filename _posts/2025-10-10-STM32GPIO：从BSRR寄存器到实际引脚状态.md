@@ -4,7 +4,7 @@ data: 2025-10-10 21:10:00 +0800
 category: 软件
 tag: [嵌入式, STM32, GPIO]
 description: STM32 GPIO ：从 BSRR 寄存器到实际引脚状态。
-image: ../assets/img-md/STM32GPIO：从BSRR寄存器到实际引脚状态/1-light.png
+image: ../assets/img-md/STM32GPIO：从BSRR寄存器到实际引脚状态/1-dark.png
 ---
 
 在 STM32 开发中，GPIO（General Purpose Input/Output，通用输入/输出口）引脚操作是最基础也最核心的功能之一。无论是驱动LED、读取传感器还是控制外设，都离不开对 GPIO 引脚的电平控制。本文将以一个具体的示例为切入点，深入解析 HAL 库函数操作背后的寄存器逻辑，以及引脚状态的实际变化规律。
