@@ -6,11 +6,11 @@ tag: [Python, 小工具]
 description: Excel 中定位 NaN 值
 ---
 
-# 1. 前言
+## 1. 前言
 最近使用 SVM 的过程中出现了“NaN”的报错，但数据量太大，于是写了这个小工具定位问题数据。
 
-# 2. Code
-## 2.1 报错
+## 2. Code
+### 2.1 报错
 ```sh
 (time_series_classification) F:\Project\YSNeuro\svm_test\svm_test_1>python train.py
 正在训练 SVM 模型...
@@ -39,7 +39,7 @@ ValueError: Input X contains NaN.
 SVC does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
 ```
 
-## 2.2 源码
+### 2.2 源码
 ```python
 import pandas as pd
 import sys
@@ -142,7 +142,7 @@ if __name__ == "__main__":
 
 ```
 
-## 2.3 结果
+### 2.3 结果
 ```sh
 (time_series_classification) F:\Project\YSNeuro\svm_test\svm_test_1>python tools\check_nan_in_excel.py
 

@@ -6,11 +6,11 @@ tags: [Python, 模块导入]
 description: 深入分析Python项目中ModuleNotFoundError错误的成因，并提供四种实用解决方案，从快速修复到最佳实践。
 ---
 
-# 1. 问题背景
+## 1. 问题背景
 
 在Python项目开发中，尤其是多人协作或模块化项目中，经常会遇到`ModuleNotFoundError`错误。这种错误通常发生在尝试导入项目内其他模块时，Python解释器无法找到对应的模块。本文将以一个实际案例为基础，详细分析这类问题的原因和多种解决方案。
 
-# 2. 案例重现
+## 2. 案例重现
 
 考虑以下项目结构：
 
@@ -39,9 +39,9 @@ project_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, project_root)
 ```
 
-# 3. 问题分析
+## 3. 问题分析
 
-## 3.1 为什么会出现这个错误？
+### 3.1 为什么会出现这个错误？
 
 1. **路径解析问题**：
    - `__file__`变量表示当前脚本的路径（如`F:\...\ssvep_sys\ui\main_layout.py`）
@@ -52,9 +52,9 @@ sys.path.insert(0, project_root)
    - Python解释器在导入模块时，会按顺序搜索`sys.path`中的目录
    - 由于错误的路径被添加，解释器无法找到`cfg`模块
 
-# 4. 解决方案
+## 4. 解决方案
 
-## 4.1 方法1：正确获取项目根目录
+### 4.1 方法1：正确获取项目根目录
 
 修改`main_layout.py`中的路径获取方式：
 
@@ -62,7 +62,7 @@ sys.path.insert(0, project_root)
 import os
 import sys
 
-# 向上回溯两级目录获取项目根目录
+## 向上回溯两级目录获取项目根目录
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
 
@@ -77,7 +77,7 @@ from cfg.ui_cfg import MAIN_WINDOW_TITLE, MAIN_LAYOUT
 - 硬编码路径层级，不够灵活
 - 项目结构调整时需要修改代码
 
-## 4.2 方法2：使用相对导入（推荐）
+### 4.2 方法2：使用相对导入（推荐）
 
 1. 在项目根目录下创建`__init__.py`文件（空文件即可）
 2. 修改导入语句：
@@ -98,16 +98,16 @@ from ..cfg.ui_cfg import MAIN_WINDOW_TITLE, MAIN_LAYOUT
 - 需要改变运行方式
 - 对初学者可能不够直观
 
-## 4.3 方法3：设置PYTHONPATH环境变量
+### 4.3 方法3：设置PYTHONPATH环境变量
 
 在运行前设置环境变量：
 
 ```bash
-# Windows (PowerShell)
+## Windows (PowerShell)
 $env:PYTHONPATH = "项目根目录绝对路径"
 python ui/main_layout.py
 
-# Linux/macOS
+## Linux/macOS
 export PYTHONPATH="项目根目录绝对路径"
 python ui/main_layout.py
 ```
@@ -120,7 +120,7 @@ python ui/main_layout.py
 - 每次运行都需要设置
 - 不利于项目移植
 
-## 4.4 方法4：安装为可编辑包（最佳实践）
+### 4.4 方法4：安装为可编辑包（最佳实践）
 
 1. 在项目根目录创建`setup.py`：
 
@@ -155,9 +155,9 @@ from cfg.ui_cfg import MAIN_WINDOW_TITLE, MAIN_LAYOUT
 - 初始配置稍复杂
 - 需要了解Python打包机制
 
-# 5. 深入理解Python模块导入
+## 5. 深入理解Python模块导入
 
-## 5.1 Python模块搜索顺序
+### 5.1 Python模块搜索顺序
 
 Python解释器在导入模块时，会按以下顺序搜索：
 
@@ -167,22 +167,22 @@ Python解释器在导入模块时，会按以下顺序搜索：
    - PYTHONPATH环境变量指定的目录
    - 安装的第三方包目录
 
-## 5.2 `sys.path`的常见操作
+### 5.2 `sys.path`的常见操作
 
 ```python
 import sys
 
-# 查看当前搜索路径
+## 查看当前搜索路径
 print(sys.path)
 
-# 添加新路径（临时）
+## 添加新路径（临时）
 sys.path.append("/path/to/module")
 
-# 插入到最前面（优先搜索）
+## 插入到最前面（优先搜索）
 sys.path.insert(0, "/path/to/module")
 ```
 
-# 6. 最佳实践建议
+## 6. 最佳实践建议
 
 1. **小型项目/快速开发**：
    - 使用方法1或方法3
@@ -203,7 +203,7 @@ sys.path.insert(0, "/path/to/module")
    print("Python搜索路径:", sys.path)
    ```
 
-# 7. 常见问题解答
+## 7. 常见问题解答
 
 **Q：为什么有时候不加路径也能导入？**
 A：当被导入模块与当前脚本在同一目录或在Python搜索路径中时，可以直接导入。
@@ -214,7 +214,7 @@ A：`.`表示当前目录，`..`表示上级目录，与文件系统路径表示
 **Q：`__init__.py`文件的作用是什么？**
 A：它告诉Python该目录应被视为一个包，可以包含初始化代码或定义`__all__`变量。
 
-# 8. 总结
+## 8. 总结
 
 Python模块导入问题看似简单，但涉及项目结构设计、Python包管理机制等多个方面。理解这些原理和解决方案，可以帮助开发者：
 
