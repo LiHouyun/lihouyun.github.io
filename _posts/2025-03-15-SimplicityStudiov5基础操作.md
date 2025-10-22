@@ -14,7 +14,7 @@ description: 最近的项目用到了芯科科技（Silicon Labs）的芯片，�
 ## 2. 改变工作路径
 当默认的工作路径中含中文时，创建项目会报错。
 
-![alt text](../assets/img-md/ssv5/ssv5-创建项目报错.png){: width="400"}
+![alt text](/assets/img-md/ssv5/ssv5-创建项目报错.png){: width="400"}
 ```sh
 Failed to create new Configurable Project (SLCP)!
 Multi-Exceptions available:
@@ -28,19 +28,19 @@ Multi-Exceptions available:
 
 “文件”-“Switch Workspace …”
 
-![alt text](../assets/img-md/ssv5/ssv5-改变工作路径.png){: width="400" }
+![alt text](/assets/img-md/ssv5/ssv5-改变工作路径.png){: width="400" }
 
 ## 3. 导入项目
 “File”-“Import …”
 
-![alt text](../assets/img-md/ssv5/ssv5-导入项目.png){: width="400" }
+![alt text](/assets/img-md/ssv5/ssv5-导入项目.png){: width="400" }
 
 ## 4. 编译程序
 右键项目名-“Bulid Project”
 
-![alt text](../assets/img-md/ssv5/ssv5-编译项目.png){: width="300" }
+![alt text](/assets/img-md/ssv5/ssv5-编译项目.png){: width="300" }
 
 ## 5. 烧录固件
 程序编译后项目目录中会有一个“Binaries”文件夹
 
-![alt text](../assets/img-md/ssv5/ssv5-烧录固件.png){: width="400" }
+![alt text](/assets/img-md/ssv5/ssv5-烧录固件.png){: width="400" }

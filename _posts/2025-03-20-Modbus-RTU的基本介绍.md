@@ -20,8 +20,8 @@ Modbus 协议分为 Modbus-RTU，Modbus-ASCII，Modbus-TCP。一般来说一个�
 ## 3 帧结构
 帧结构由地址域、功能码、数据、差错校验组成。
 
-![](../assets/img-md/rtu/rtu-帧格式-light.png){: .light width="400"}
-![](../assets/img-md/rtu/rtu-帧格式-dark.png){: .dark width="400"}
+![](/assets/img-md/rtu/rtu-帧格式-light.png){: .light width="400"}
+![](/assets/img-md/rtu/rtu-帧格式-dark.png){: .dark width="400"}
 
 ### 3.1 地址域
 地址域由一个字节构成（8 位），理论上有 256 中不同的地址域。但不能一个主站搭配 265 个从站设备，因为地址 0 是广播地址，后 8 个地址（248 ~ 255）是被保留的，所以只有中间的 1 ~ 247 可以作为从站地址。被保留的地址可以有用户自由设定，例如设定特定地址段的广播指令。
@@ -36,8 +36,8 @@ Modbus 协议分为 Modbus-RTU，Modbus-ASCII，Modbus-TCP。一般来说一个�
 ### 3.2 PDU
 PDU 由功能码和数据组成。
 
-![](../assets/img-md/rtu/rtu-pdu-light.png){: .light width="400"}
-![](../assets/img-md/rtu/rtu-pdu-dark.png){: .dark width="400"}
+![](/assets/img-md/rtu/rtu-pdu-light.png){: .light width="400"}
+![](/assets/img-md/rtu/rtu-pdu-dark.png){: .dark width="400"}
 
 ### 3.3 功能码
 功能码由一个字节构成。
@@ -46,8 +46,8 @@ PDU 由功能码和数据组成。
 数据长度不定，由功能码决定。
 
 ### 3.5 回执帧
-![](../assets/img-md/rtu/rtu-接收帧格式-light.png){: .light width="400"}
-![](../assets/img-md/rtu/rtu-接收帧格式-dark.png){: .dark width="400"}
+![](/assets/img-md/rtu/rtu-接收帧格式-light.png){: .light width="400"}
+![](/assets/img-md/rtu/rtu-接收帧格式-dark.png){: .dark width="400"}
 
 ## 4 Modbus-RTU CRC 程序
 ```python

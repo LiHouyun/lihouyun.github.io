@@ -21,7 +21,7 @@ description: Excel Datas Viewer
 python tools\excel_chart_viewer.py data\real_data_sheet_cls_5_artificial_cut.xlsx
 ```
 
-![alt text](../assets/img-md/ExcelDatasViewer/image.png)
+![alt text](/assets/img-md/ExcelDatasViewer/image.png)
 
 ```python
 # 25 Y
